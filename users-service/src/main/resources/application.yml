@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: users-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+  datasource:
+    url: jdbc:postgresql://localhost:5432/usersdb
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  security:
+    user:
+      name: admin
+      password: admin123
+
+  jpa:
+    hibernate:
+      ddl-auto: update # Adjust to `none` or `validate` as needed
+    show-sql: true # Optional: Show SQL queries in logs
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8089
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+
